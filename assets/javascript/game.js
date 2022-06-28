@@ -6,13 +6,16 @@ var words = ["akali", "dog", "needle", "baseball", "partner", "manager",
 
 var wins = 0, losses = 0, numGuesses = 0, count = 0;
 var wordIndex = 0;
-var displayWord = "";
+var displayWord = [];
 
 resetGame();
 
 document.onkeyup = function (event) {
     var input = event.key;
-    document.getElementById("word").innerHTML = displayWord;
+    //if(words[wordIndex].search(input)){
+         //= displayWord.charAt(words[wordIndex].indexOf(input)+words[wordIndex].indexOf(input)+1);
+    //}
+    document.getElementById("word").innerHTML = displayMysteryWord();
 }
 
 function updateGame(){
@@ -22,6 +25,14 @@ function updateGame(){
 function resetGame(){
     wordIndex = Math.floor(Math.random()*words.length);
     for(var i = 0; i < words[wordIndex].length; i++){
-        displayWord+= "_ ";
+        displayWord.push(" _ ");
     }
+}
+
+function displayMysteryWord(){
+    var output = "";
+    for(var i = 0; i < displayWord.length; i++){
+        output += displayWord[i];
+    }
+    return output;
 }
