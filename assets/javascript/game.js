@@ -7,15 +7,24 @@ var words = ["akali", "dog", "needle", "baseball", "partner", "manager",
 var wins = 0, losses = 0, numGuesses = 0, count = 0;
 var wordIndex = 0;
 var displayWord = [];
+var duplicate;
 
 resetGame();
-
+console.log(words[wordIndex]);
 document.onkeyup = function (event) {
     var input = event.key;
-    //if(words[wordIndex].search(input)){
-         //= displayWord.charAt(words[wordIndex].indexOf(input)+words[wordIndex].indexOf(input)+1);
-    //}
+    var temp = new RegExp(input, "gi");
+    var temp2 = words[wordIndex];
+    if(temp2.includes(input)){
+        duplicate = temp2.match(temp);
+        for(var i = 0; i < duplicate.length; i++){
+        displayWord[temp2.indexOf(input)] = input;
+        temp2 = temp2.replace(input, " ");
+    }
+    }
+
     document.getElementById("word").innerHTML = displayMysteryWord();
+    console.log(input);
 }
 
 function updateGame(){
