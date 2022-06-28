@@ -5,22 +5,14 @@ var words = ["akali", "dog", "needle", "baseball", "partner", "manager",
 "maximum", "adult", "art", "pierce", "kit", "tablet", "necklace", "incentive", "Supercalifragilisticexpialidocious"];
 
 var wins = 0, losses = 0, numGuesses = 0, count = 0;
-var temp = 0;
-var cookie = 0;
+var wordIndex = 0;
 var displayWord = "";
+
+resetGame();
 
 document.onkeyup = function (event) {
     var input = event.key;
-    console.log(input);
-    if(cookie == 0){
-        temp = Math.floor(Math.random()*words.length);
-        cookie = 1;
-        for(var i = 0; i < words[temp].length; i++){
-            displayWord+= " _ ";
-        }
-        document.getElementById("word").innerHTML = displayWord;
-    }
-
+    document.getElementById("word").innerHTML = displayWord;
 }
 
 function updateGame(){
@@ -28,5 +20,8 @@ function updateGame(){
 }
 
 function resetGame(){
-
+    wordIndex = Math.floor(Math.random()*words.length);
+    for(var i = 0; i < words[wordIndex].length; i++){
+        displayWord+= "_ ";
+    }
 }
