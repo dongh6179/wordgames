@@ -6,7 +6,7 @@ var words = ["akali", "dog", "needle", "baseball", "partner", "manager",
 
 var wins = 0, losses = 0, numGuesses = 0, count = 0;
 var wordIndex = 0;
-var displayWord = [];
+var displayWord = [], wrongGuesses = [];
 var duplicate;
 
 resetGame();
@@ -15,13 +15,26 @@ document.onkeyup = function (event) {
     var input = event.key;
     var temp = new RegExp(input, "gi");
     var temp2 = words[wordIndex];
-    if(temp2.includes(input)){
-        duplicate = temp2.match(temp);
-        for(var i = 0; i < duplicate.length; i++){
-        displayWord[temp2.indexOf(input)] = input;
-        temp2 = temp2.replace(input, " ");
+    if(temp2.search(/[a-z]|[A-Z]/) != -1){
+        if(temp2.includes(input)){
+            duplicate = temp2.match(temp);
+            for(var i = 0; i < duplicate.length; i++){
+                displayWord[temp2.indexOf(input)] = input;
+                temp2 = temp2.replace(input, " ");
+            }
+        }
+        else{
+            if(document.getElementById("wrongLetters").innerHTML.includes(input.toLowerCase())){
+
+            }
+            else{
+                wrongGuesses.push(input.toLowerCase());
+            }
+            
+            document.getElementById("wrongLetters").innerHTML = "Wrong letters: " + wrongGuesses;
+        }
     }
-    }
+
 
     document.getElementById("word").innerHTML = displayMysteryWord();
     console.log(input);
