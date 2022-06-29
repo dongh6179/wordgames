@@ -11,6 +11,7 @@ var duplicate;
 
 resetGame();
 console.log(words[wordIndex]);
+document.getElementById("word").innerHTML = displayMysteryWord();
 
 document.onkeyup = function (event) {
     var input = event.key;
