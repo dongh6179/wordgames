@@ -4,29 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <title>Word Guessin</title>
 </head>
 <body>
 <script src="javascript/game.js"></script>
-    <div>
-        This is a word guessing game where you type a letter and slowly figure out the word.
-        <br>
-    </div>
-    <h1> Press any key to get started! </h1>
-    <h2 id = word></h2>
-    <h3 id = "wrongLetters"> Wrong letters: </h3>
+
     <div class="container">
-        <div class="row">
-            <div id = "guessesLeft" class="col-4">
-                Guesses Left: 
+    
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p>This is a word guessing game where you type a letter and slowly figure out the word.</p>
+                </div>
             </div>
-            <div id="Wins" class="col-4">
-                Wins: 
+
+            <div class="row">
+        
+                <div class="col">
+                    <h1> Press any key to get started! </h1>
+                </div>
+        
             </div>
-            <div id="Losses" class="col-4">
-                Losses: 
+
+            <div class = "row">
+                <div class = "col">
+                    <h2 id=word></h2>
+                </div>
             </div>
+
+            <div class = "row">
+                <div class = "col">
+                    <h3 id="wrongLetters"> Wrong letters: </h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="guessesLeft" class="col">
+                    Guesses Left: 20
+                </div>
+                <div id="Wins" class="col">
+                    Wins: 0
+                </div>
+                <div id="Losses" class="col">
+                    Losses: 0
+                </div>
+            </div>
+            
         </div>
-    </div>
 </body>
 </html>
