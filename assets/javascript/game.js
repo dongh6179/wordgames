@@ -11,6 +11,7 @@ var duplicate;
 
 resetGame();
 console.log(words[wordIndex]);
+
 document.onkeyup = function (event) {
     var input = event.key;
     var regExp = new RegExp(input, "gi");
