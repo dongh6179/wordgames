@@ -4,7 +4,7 @@ var words = ["akali", "dog", "needle", "baseball", "partner", "manager",
 "advance", "organ", "direction", "spectrum", "surgeon", "wheel", "generation",
 "maximum", "adult", "art", "pierce", "kit", "tablet", "necklace", "incentive", "Supercalifragilisticexpialidocious"];
 
-var wins = 0, losses = 0, numGuesses = 0, count = 0;
+var wins = 0, losses = 0, numGuesses = 20, count = 0;
 var wordIndex = 0;
 var displayWord = [], wrongGuesses = [];
 var duplicate;
@@ -13,32 +13,47 @@ resetGame();
 console.log(words[wordIndex]);
 document.onkeyup = function (event) {
     var input = event.key;
-    var temp = new RegExp(input, "gi");
-    var temp2 = words[wordIndex];
-    if(temp2.search(/[a-z]|[A-Z]/) != -1){
-        if(temp2.includes(input)){
-            duplicate = temp2.match(temp);
+    var regExp = new RegExp(input, "gi");
+    var placeholder = words[wordIndex];
+    if(placeholder.search(/[a-z]|[A-Z]/) != -1){
+        if(placeholder.includes(input)){
+            duplicate = placeholder.match(regExp);
             for(var i = 0; i < duplicate.length; i++){
-                displayWord[temp2.indexOf(input)] = input;
-                temp2 = temp2.replace(input, " ");
+                displayWord[placeholder.indexOf(input)] = input;
+                placeholder = placeholder.replace(input, " ");
             }
         }
         else{
-            wrongGuesses.push(input.toLowerCase());
-            document.getElementById("wrongLetters").innerHTML = "Wrong letters: " + wrongGuesses;
+            if(document.getElementById("wrongLetters").innerHTML.includes(input.toLowerCase(),14)){
+
+            }
+            else{
+                numGuesses--;
+                wrongGuesses.push(input.toLowerCase());
+                document.getElementById("wrongLetters").innerHTML = "Wrong letters: " + wrongGuesses;
+            }
         }
     }
 
-
     document.getElementById("word").innerHTML = displayMysteryWord();
     console.log(input);
+    console.log(numGuesses);
+    updateGame();
 }
 
 function updateGame(){
-
+    if(!(document.getElementById("word").innerHTML.includes("_"))){
+        if(numGuesses > 0){
+            wins++;
+        }
+        else{
+            losses++;
+        }
+    }
 }
 
 function resetGame(){
+    numGuesses = 20;
     wrongGuesses = [];
     wordIndex = Math.floor(Math.random()*words.length);
     for(var i = 0; i < words[wordIndex].length; i++){
