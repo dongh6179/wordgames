@@ -24,13 +24,7 @@ document.onkeyup = function (event) {
             }
         }
         else{
-            if(document.getElementById("wrongLetters").innerHTML.includes(input.toLowerCase())){
-
-            }
-            else{
-                wrongGuesses.push(input.toLowerCase());
-            }
-            
+            wrongGuesses.push(input.toLowerCase());
             document.getElementById("wrongLetters").innerHTML = "Wrong letters: " + wrongGuesses;
         }
     }
@@ -45,6 +39,7 @@ function updateGame(){
 }
 
 function resetGame(){
+    wrongGuesses = [];
     wordIndex = Math.floor(Math.random()*words.length);
     for(var i = 0; i < words[wordIndex].length; i++){
         displayWord.push(" _ ");
