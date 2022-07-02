@@ -60,7 +60,7 @@ function updateGame(){
 }
 
 function resetGame(){
-    numGuesses = 20;
+    numGuesses = 10;
     wrongGuesses = [], displayWord = [];
     document.getElementById("wrongLetters").innerHTML = "Wrong letters: " + wrongGuesses;
     wordIndex = Math.floor(Math.random()*words.length);
