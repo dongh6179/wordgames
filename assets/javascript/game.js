@@ -18,11 +18,11 @@ document.onkeyup = function (event) {
     var regExp = new RegExp(input, "gi");
     var placeholder = words[wordIndex];
     if(placeholder.search(/[a-z]|[A-Z]/) != -1){
-        if(placeholder.includes(input)){
+        if(placeholder.includes(input.toLowerCase())){
             duplicate = placeholder.match(regExp);
             for(var i = 0; i < duplicate.length; i++){
-                displayWord[placeholder.indexOf(input)] = input;
-                placeholder = placeholder.replace(input, " ");
+                displayWord[placeholder.indexOf(input.toLowerCase())] = input.toLowerCase();
+                placeholder = placeholder.replace(input.toLowerCase(), " ");
             }
         }
         else{
@@ -49,11 +49,13 @@ function updateGame(){
     setTimeout
     if(numGuesses <= 0){
         losses++
+        alert("An entire galaxy has been lost...");
         resetGame();
     }
     if(!(document.getElementById("word").innerHTML.includes("_"))){
         if(numGuesses > 0){
             wins++;
+            alert("You saved this galaxy from doom!");
             resetGame();
         }
     }
