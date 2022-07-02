@@ -37,26 +37,32 @@ document.onkeyup = function (event) {
         }
     }
 
-    document.getElementById("word").innerHTML = displayMysteryWord();
-    console.log(input);
-    console.log(numGuesses);
     updateGame();
 }
 
 function updateGame(){
+    document.getElementById("word").innerHTML = displayMysteryWord();
+    setTimeout
+    if(numGuesses <= 0){
+        losses++
+        resetGame();
+    }
     if(!(document.getElementById("word").innerHTML.includes("_"))){
         if(numGuesses > 0){
             wins++;
-        }
-        else{
-            losses++;
+            resetGame();
         }
     }
+    document.getElementById("word").innerHTML = displayMysteryWord();
+    document.getElementById("Wins").innerHTML = "Wins: " + wins;
+    document.getElementById("Losses").innerHTML = "Losses: " + losses;
+    document.getElementById("guessesLeft").innerHTML = "Guesses Left: " + numGuesses;
 }
 
 function resetGame(){
     numGuesses = 20;
-    wrongGuesses = [];
+    wrongGuesses = [], displayWord = [];
+    document.getElementById("wrongLetters").innerHTML = "Wrong letters: " + wrongGuesses;
     wordIndex = Math.floor(Math.random()*words.length);
     for(var i = 0; i < words[wordIndex].length; i++){
         displayWord.push(" _ ");
