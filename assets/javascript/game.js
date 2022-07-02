@@ -74,6 +74,7 @@ function resetGame(){
         var temp = "star" + i;
         document.getElementById(temp).style.visibility = "visible";
     }
+    starNum = 1;
 }
 
 function displayMysteryWord(){
