@@ -1,8 +1,8 @@
-var words = ["akali", "dog", "needle", "baseball", "partner", "manager",
-"absent", "digital", "transmission", "welcome", "context", "command",
-"contradiction", "dare", "owl", "preference", "respectable", "snatch",
-"advance", "organ", "direction", "spectrum", "surgeon", "wheel", "generation",
-"maximum", "adult", "art", "pierce", "kit", "tablet", "necklace", "incentive", "Supercalifragilisticexpialidocious"];
+var words = ["galaxy", "stars", "andromeda", "milkyway", "jupiter", "interstellar",
+"absent", "solarsystem", "asteroid", "neptune", "mars", "earth",
+"mercury", "venus", "pluto", "uranus", "saturn", "sun",
+"dwarf", "comet", "planet", "rocket", "quasar", "alien", "apollo",
+"neutron", "satellite", "lightyear", "parsec", "astronomy"];
 
 var wins = 0, losses = 0, numGuesses = 20, count = 0, starNum = 1;
 var wordIndex = 0;
@@ -36,6 +36,7 @@ document.onkeyup = function (event) {
                 var temp = "star" + starNum;
                 document.getElementById(temp).style.visibility = "hidden";
                 starNum++;
+                alert("A star slowly grows colder until it is devoid of all light...")
             }
         }
     }
