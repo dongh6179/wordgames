@@ -4,7 +4,7 @@ var words = ["akali", "dog", "needle", "baseball", "partner", "manager",
 "advance", "organ", "direction", "spectrum", "surgeon", "wheel", "generation",
 "maximum", "adult", "art", "pierce", "kit", "tablet", "necklace", "incentive", "Supercalifragilisticexpialidocious"];
 
-var wins = 0, losses = 0, numGuesses = 20, count = 0;
+var wins = 0, losses = 0, numGuesses = 20, count = 0, starNum = 1;
 var wordIndex = 0;
 var displayWord = [], wrongGuesses = [];
 var duplicate;
@@ -33,6 +33,9 @@ document.onkeyup = function (event) {
                 numGuesses--;
                 wrongGuesses.push(input.toLowerCase());
                 document.getElementById("wrongLetters").innerHTML = "Wrong letters: " + wrongGuesses;
+                var temp = "star" + starNum;
+                document.getElementById(temp).style.visibility = "hidden";
+                starNum++;
             }
         }
     }
@@ -66,6 +69,10 @@ function resetGame(){
     wordIndex = Math.floor(Math.random()*words.length);
     for(var i = 0; i < words[wordIndex].length; i++){
         displayWord.push(" _ ");
+    }
+    for(var i = 1; i <= 10; i++){
+        var temp = "star" + i;
+        document.getElementById(temp).style.visibility = "visible";
     }
 }
 

@@ -2,7 +2,7 @@ body{
     text-align: center;
     color: aliceblue;
     vertical-align: middle;
-    background-image: url(../images/stars_background.jfif);
+    background-image: url(../images/stars_background.png);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
@@ -12,4 +12,35 @@ body{
 img{
     width: 100px;
     height: 100px;
+}
+
+#star1{
+    visibility: "visible";
+}
+#star2 {
+    visibility: "visible";
+}
+#star3 {
+    visibility: "visible";
+}
+#star4 {
+    visibility: "visible";
+}
+#star5 {
+    visibility: "visible";
+}
+#star6 {
+    visibility: "visible";
+}
+#star7 {
+    visibility: "visible";
+}
+#star8 {
+    visibility: "visible";
+}
+#star9 {
+    visibility: "visible";
+}
+#star10 {
+    visibility: "visible";
 }
